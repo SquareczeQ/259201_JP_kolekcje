@@ -218,10 +218,11 @@ public class PersonConsoleApp {
 						showPerson(i);
 					}
 					break;
-				case 2: //TreeSet
+				case 2: //Sprawdzanie dodawania/usuwania/wielokrotnego dodawania
+						//obiektów Person i PersonZadanie do TreeSet
 					UI.printInfoMessage("TreeSet:");
-					Set<Person> ts = new TreeSet<>(new Comparator<Person>() {
-						@Override
+					Set<Person> ts = new TreeSet<>(new Comparator<Person>() { //tworzenie ts z obiektami Person
+						@Override //nadpisanie metody compare dla Person
 						public int compare(Person o1, Person o2) {
 							if(o1.getFirstName().equals(o2.getFirstName())
 							&& o1.getLastName().equals(o2.getLastName())
@@ -230,8 +231,8 @@ public class PersonConsoleApp {
 							else return 1;
 						}
 					});
-					Set<PersonZadanie> tsx = new TreeSet<>(new Comparator<PersonZadanie>() {
-						@Override
+					Set<PersonZadanie> tsx = new TreeSet<>(new Comparator<PersonZadanie>() { //tworzenie tsx z obiektami PersonZadanie
+						@Override //nadpisanie metody compare dla PersonZadanie
 						public int compare(PersonZadanie o1, PersonZadanie o2) {
 							if(o1.getFirstName().equals(o2.getFirstName())
 									&& o1.getLastName().equals(o2.getLastName())
@@ -248,7 +249,7 @@ public class PersonConsoleApp {
 					tsx.add(ax);
 					tsx.add(bx);
 					tsx.add(fx);
-					for (Person i : ts) {
+					for (Person i : ts) { //wyświetlanie kolejnych obiektów Person z ts
 						showPerson(i);
 					}
 					UI.printInfoMessage("Powtórne wielokrotne dodanie zmiennych a do stosu:");
@@ -260,23 +261,24 @@ public class PersonConsoleApp {
 					tsx.add(bx);
 					tsx.add(ex);
 					UI.printInfoMessage("Stos obiektów klasy bez nadpisania metod equals i hashcode:\n");
-					for (Person i : ts) {
+					for (Person i : ts) { //wyświetlanie kolejnych obiektów Person z ts
 						showPerson(i);
 					}
 					UI.printInfoMessage("Stos obiektów klasy z nadpisaniem metod equals i hashcode:\n");
-					for (Person i : tsx) {
+					for (Person i : tsx) { //wyświetlanie kolejnych obiektów PersonZadanie z tsx
 						showPerson(i);
 					}
 					UI.printInfoMessage("Usuwanie:");
 					ts.remove(a);
-					for (Person i : ts) {
+					for (Person i : ts) { //wyświetlanie obiektów pozostałych po usunięciu
 						showPerson(i);
 					}
 					break;
-				case 3: //ArrayList
+				case 3: //Sprawdzanie dodawania/usuwania/wielokrotnego dodawania
+					//obiektów Person i PersonZadanie do ArrayList
 					UI.printInfoMessage("ArrayList:");
-					List<Person> al = new ArrayList<>();
-					List<PersonZadanie> alx = new ArrayList<>();
+					List<Person> al = new ArrayList<>(); //tworzenie al z obiektami Person
+					List<PersonZadanie> alx = new ArrayList<>(); //tworzenie alx z obiektami PersonZadanie
 					System.out.println("Dodawanie elementów do kolekcji bez powtórzeń:\n");
 					al.add(a);
 					al.add(b);
@@ -285,7 +287,7 @@ public class PersonConsoleApp {
 					alx.add(ax);
 					alx.add(bx);
 					alx.add(fx);
-					for (Person i : al) {
+					for (Person i : al) { //wyświetlanie kolejnych obiektów Person z al
 						showPerson(i);
 					}
 					UI.printInfoMessage("Powtórne wielokrotne dodanie zmiennych do listy:");
@@ -297,23 +299,23 @@ public class PersonConsoleApp {
 					alx.add(bx);
 					alx.add(ex);
 					UI.printInfoMessage("Lista obiektów klasy bez nadpisania metod equals i hashcode:\n");
-					for (Person i : al) {
+					for (Person i : al) { //wyświetlanie kolejnych obiektów Person z al
 						showPerson(i);
 					}
 					UI.printInfoMessage("Lista obiektów klasy z nadpisaniem metod equals i hashcode:\n");
-					for (Person i : alx) {
+					for (Person i : alx) { //wyświetlanie kolejnych obiektów PersonZadanie z alx
 						showPerson(i);
 					}
 					UI.printInfoMessage("Usuwanie:");
 					al.remove(a);
-					for (Person i : al) {
+					for (Person i : al) { //wyświetlanie obiektów pozostałych po usunięciu
 						showPerson(i);
 					}
 					break;
 				case 4: //LinkedList
 					UI.printInfoMessage("LinkedList:");
-					List<Person> ll = new LinkedList<>();
-					List<PersonZadanie> llx = new LinkedList<>();
+					List<Person> ll = new LinkedList<>(); //tworzenie ll z obiektami Person
+					List<PersonZadanie> llx = new LinkedList<>(); //tworzenie llx z obiektami PersonZadanie
 					System.out.println("Dodawanie elementów do kolekcji bez powtórzeń:\n");
 					ll.add(a);
 					ll.add(b);
@@ -322,7 +324,7 @@ public class PersonConsoleApp {
 					llx.add(ax);
 					llx.add(bx);
 					llx.add(fx);
-					for (Person i : ll) {
+					for (Person i : ll) { //wyświetlanie kolejnych obiektów Person z ll
 						showPerson(i);
 					}
 					UI.printInfoMessage("Powtórne wielokrotne dodanie zmiennych do listy:");
@@ -334,11 +336,11 @@ public class PersonConsoleApp {
 					llx.add(bx);
 					llx.add(ex);
 					UI.printInfoMessage("Lista obiektów klasy bez nadpisania metod equals i hashcode:\n");
-					for (Person i : ll) {
+					for (Person i : ll) { //wyświetlanie kolejnych obiektów Person z ll
 						showPerson(i);
 					}
 					UI.printInfoMessage("Lista obiektów klasy z nadpisaniem metod equals i hashcode:\n");
-					for (Person i : llx) {
+					for (Person i : llx) { //wyświetlanie kolejnych obiektów PersonZadanie z llx
 						showPerson(i);
 					}
 					UI.printInfoMessage("Usuwanie:");
@@ -347,7 +349,7 @@ public class PersonConsoleApp {
 					remove.add(a);
 					remove.add(b);
 					ll.removeAll(remove);
-					for (Person i : ll) {
+					for (Person i : ll) { //wyświetlanie obiektów pozostałych po usunięciu
 						showPerson(i);
 					}
 					break;
@@ -358,7 +360,7 @@ public class PersonConsoleApp {
 					hm.put(1, a);
 					hm.put(2, b);
 					hm.put(1, f); //dodanie elementu na klucz zajęty
-					for (Person i : hm.values()) {
+					for (Person i : hm.values()) { //wyświetlanie kolejnych obiektów Person z hm
 						showPerson(i);
 					}
 					UI.printInfoMessage("Powtórne wielokrotne dodanie zmiennych do listy:");
@@ -368,13 +370,13 @@ public class PersonConsoleApp {
 					hm.put(6, e);
 
 					UI.printInfoMessage("Lista obiektów:\n");
-					for (Person i : hm.values()) {
+					for (Person i : hm.values()) { //wyświetlanie kolejnych obiektów Person z hm
 						showPerson(i);
 					}
 					UI.printInfoMessage("Usuwanie:");
 					hm.remove(1);
 					hm.remove(2);
-					for (Person i : hm.values()) {
+					for (Person i : hm.values()) { //wyświetlanie obiektów pozostałych po usunięciu
 						showPerson(i);
 					}
 					break;
@@ -386,7 +388,7 @@ public class PersonConsoleApp {
 					tm.put(2, b);
 					tm.put(3, b);
 					tm.put(1, f); //dodanie elementu na klucz zajęty
-					for (Person i : tm.values()) {
+					for (Person i : tm.values()) { //wyświetlanie kolejnych obiektów Person z tm
 						showPerson(i);
 					}
 					UI.printInfoMessage("Powtórne wielokrotne dodanie zmiennych do listy:");
@@ -396,13 +398,13 @@ public class PersonConsoleApp {
 					tm.put(6, e);
 
 					UI.printInfoMessage("Lista obiektów:\n");
-					for (Person i : tm.values()) {
+					for (Person i : tm.values()) { //wyświetlanie kolejnych obiektów Person z tm
 						showPerson(i);
 					}
 					UI.printInfoMessage("Usuwanie:");
 					tm.remove(1);
 					tm.remove(2);
-					for (Person i : tm.values()) {
+					for (Person i : tm.values()) { //wyświetlanie obiektów pozostałych po usunięciu
 						showPerson(i);
 					}
 					break;
